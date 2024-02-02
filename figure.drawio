@@ -1,0 +1,74 @@
+<mxfile host="65bd71144e">
+    <diagram id="_70eBT-OgUTd0a8Njm8a" name="ページ1">
+        <mxGraphModel dx="961" dy="1574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="story&lt;br&gt;(実行用ファイル)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="160" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;strokeWidth=3;fillColor=#008a00;strokeColor=#005700;" edge="1" parent="1" source="3" target="35">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Monster&lt;br&gt;(enemyの属性や値を渡す)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="230" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Enemy&lt;br&gt;(敵キャラ(enemy)をリストに入れる)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="230" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" edge="1" parent="1" source="5" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="conunt&lt;br&gt;リストからランダムで取得" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="325" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="getName&lt;br&gt;enemyのnameをリターン" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="325" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="80" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="getAtacck&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;enemyのnameをリターン" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="240" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="getHelth&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;enemyのnameをリターン" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="325" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" edge="1" parent="1" source="15" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Sarch&lt;br&gt;(storyで探索を選んだ際に動くメソッド)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="160" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" edge="1" parent="1" source="18" target="15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Battle&lt;br&gt;(相手と接敵した際にcountを使う)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="280" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Method&lt;br&gt;(いくつかの場所で使えそうなメソッドを格納)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="460" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Random&lt;br&gt;(乱数)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="100" width="100" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" edge="1" parent="1" source="33" target="35">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="" style="swimlane;startSize=0;" vertex="1" collapsed="1" parent="1">
+                    <mxGeometry x="450" y="-10" width="100" height="190" as="geometry">
+                        <mxRectangle x="420" y="150" width="100" height="150" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="" style="swimlane;startSize=0;" vertex="1" collapsed="1" parent="1">
+                    <mxGeometry x="510" y="225" width="230" height="190" as="geometry">
+                        <mxRectangle x="320" y="100" width="200" height="200" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="220" width="100" height="190" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
