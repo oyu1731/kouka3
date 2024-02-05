@@ -73,13 +73,7 @@ public class Story implements Inter {
                 } else if (choice == 9) {
                     System.out.println("プログラムを終了します。");
                     System.exit(0);
-                } else if (choice == 5) {
-                    // choice == 5 の処理が記述されていませんでしたが、適切な処理を追加する必要があります。
-                    // Adventure.finalBattle();
-                    // System.exit(0);
-                    System.out.println("この選択に対する処理が不足しています。");
-                }
-                 else {
+                } else {
                     System.out.println("1,2,9を入力してください。");
                 }
                 while_line();
