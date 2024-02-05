@@ -74,7 +74,7 @@ public class Story implements Inter {
                     System.out.println("プログラムを終了します。");
                     System.exit(0);
                 } else {
-                    System.out.println("1,2,9を入力してください。");
+                    System.out.println("1,2,8,9を入力してください。");
                 }
                 while_line();
             } catch (InputMismatchException e) {
