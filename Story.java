@@ -24,6 +24,7 @@ public class Story implements Inter {
      * @throws InterruptedException スレッドの割り込みが発生した場合
      */
     public static void main(String[] args) throws InterruptedException {
+        // Story クラスのインスタンスを生成してゲームを開始
         Story story = new Story();
         story.start();
     }
@@ -39,7 +40,7 @@ public class Story implements Inter {
         Character.initializeEnemies();
 
         System.out.println("ゲームスタート");
-
+        
         // 行動のループ
         for (int count = 5; count > 0; ) {
             System.out.println("残り行動回数" + count + "回");
@@ -72,7 +73,13 @@ public class Story implements Inter {
                 } else if (choice == 9) {
                     System.out.println("プログラムを終了します。");
                     System.exit(0);
-                } else {
+                } else if (choice == 5) {
+                    // choice == 5 の処理が記述されていませんでしたが、適切な処理を追加する必要があります。
+                    // Adventure.finalBattle();
+                    // System.exit(0);
+                    System.out.println("この選択に対する処理が不足しています。");
+                }
+                 else {
                     System.out.println("1,2,9を入力してください。");
                 }
                 while_line();
@@ -91,7 +98,7 @@ public class Story implements Inter {
 
         for (int i = 0; i < 3; i++) {
             // --------------[ プログラムを1秒停止 ]--------------
-            Method.talk("    ・   \n");
+            System.out.println("    ・   \n");
             Thread.sleep(1000);
         }
 
@@ -107,12 +114,12 @@ public class Story implements Inter {
             int maou_choice = stdIn.nextInt();
             if (maou_choice == 1) {
                 Method.talk("ほんとうだな？\n");
-                System.out.print("YES    >> 1\nNO     >> 9");
+                System.out.print("YES    >> 1\nNO     >> 9\n");
                 System.out.print("選択 >> ");
                 int maou_choice2 = stdIn.nextInt();
                 if (maou_choice2 == 1) {
                     Method.talk("では せかいの はんぶん やみのせかいを あたえよう！ そして…\nそなたに ふっかつのじゅもんを おしえよう！\n");
-                    Method.talk("＊＊＊＊＊ ＊＊＊＊＊＊＊ ＊＊＊＊＊　＊＊＊\n これを かきとめておくのだぞ。\n");
+                    Method.talk("＊＊＊＊＊　＊＊＊＊＊＊＊　＊＊＊＊＊　＊＊＊\n これを かきとめておくのだぞ。\n");
                     Method.talk("おまえの たびは おわった。 さぁ ゆっくり やすむがよい！ わあっはっはっはっ\n");
                 } else if (maou_choice2 == 9) {
                     Method.talk("おろかものめ！！\n");

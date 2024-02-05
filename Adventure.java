@@ -2,6 +2,7 @@ package kouka3;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.nio.charset.*;
 
 /**
  * 冒険を進行するクラスです。
@@ -36,6 +37,7 @@ public class Adventure {
 
         int num = Method.getRandom(10);
 
+        // numが５以下の場合バトルへ
         if (num <= 5) {
             // モンスターとの遭遇
             Method.talk("モンスターに遭遇した！！");
@@ -45,27 +47,36 @@ public class Adventure {
             Character enemyCharacter = Character.getRandomEnemy();
             String Y_N = "shokiti"; // バトルループの制御用変数
 
-            // 遭遇したモンスターのステータスを表示
+            // ---------[ 遭遇したモンスターのステータスを表示 ]-----------------------------
             Method.talk(enemyCharacter.getName() + "が現れた！\n");
+            // 遭遇したモンスターの名前を取得
             String str = enemyCharacter.getStr();
             Method.talk(str + "\n");
+            // 遭遇したモンスターの攻撃力を表示
             Method.talk(enemyCharacter.getName() + "の攻撃力        : " + enemyCharacter.getAttack() + "\n");
+            // 遭遇したモンスターの攻撃力を取得
             int e_attack = enemyCharacter.getAttack();
+            // 遭遇したモンスターHPを表示
             Method.talk(enemyCharacter.getName() + "のHP            : " + enemyCharacter.getHealth() + "\n");
+            //----------------------------------------------------------------------------
+            //----------------[ 勇者のステータスを表示 ]------------------------------------
             Method.talk("勇者の攻撃力            : " + Character.getHeroAttack() + "\n");
             Method.talk("勇者のHP                : " + Character.getHeroHealth() + "\n");
+            //----------------------------------------------------------------------------
             System.out.println("YES    >> 1\nNO     >> 9");
             System.out.print("戦う？ >> ");
 
+            // 例外処理()
             try {
                 int choice = stdIn.nextInt();
-
+                // choiceが1だったらbattleを呼び出す
                 if (choice == 1) {
                     Method.talk("戦う\n");
                     // Y_Nに代入しバトルループを終了
+                    
                     Y_N = "a";
                     battle(e_attack, enemyCharacter);
-
+                // choiceが9だったら逃げるコマンドとして、ループを終了する
                 } else if (choice == 9) {
                     Method.talk("逃げる");
                     System.out.println();
@@ -75,8 +86,10 @@ public class Adventure {
                     Y_N = "a";
 
                 } else {
+                    // intがたの1.9以外の場合の処理 
                     Method.talk("1か9で入力してください。\n");
                 }
+            // 例外処理（intに入らない場合）
             } catch (InputMismatchException e) {
                 Method.talk("入力方法が正しくありません。\n");
                 System.out.println();
@@ -84,6 +97,7 @@ public class Adventure {
                 // 無効な入力をスキャナーバッファからクリアします
                 stdIn.nextLine();
             }
+        //乱数が
         } else if (num <= 8) {
             // アイテム入手
             Method.talk("なにか落ちている...\n");
@@ -109,7 +123,7 @@ public class Adventure {
                     // 幻の薬草
                     Method.talk("幻の薬草を見つけた！\n");
                     Method.talk("勇者のステータスが上昇した。\n");
-                    Character.up_hero(0, 200);
+                    Character.up_hero(0, 300);
                     Method.talk("勇者のHPは" + Character.getHeroHealth() + "だ\n");
                     Method.talk("勇者の攻撃力は" + Character.getHeroAttack() + "だ\n");
                     break;
@@ -174,6 +188,7 @@ public class Adventure {
                 Method.talk(enemy_name + "は倒れた\n");
                 Method.talk(enemy_name + "に勝利した！\n");
                 Method.talk("勇者のステータスが上昇した。\n");
+                // 1以上、5以下数字に100をかけてup_heroの引数に渡す
                 Character.up_hero((Method.getRandom(4) + 1) * 100, (Method.getRandom(4) + 1) * 100);
                 Method.talk("勇者のHPは" + Character.getHeroHealth() + "\n");
                 Method.talk("勇者の攻撃力は" + Character.getHeroAttack() + "だ\n");
@@ -210,19 +225,20 @@ public class Adventure {
      */
     public static void finalBattle() {
         Method.talk("最終戦！ 魔王 が現れた！\n");
+        Method.talk("勇者はあふれる闘志でいつも以上の力がありそうだ！\n");
         Method.talk("魔王の攻撃力        :???? \n");
         Method.talk("魔王のHP            :???? \n");
 
         int reviveCount = 0;
         int judgement = 1; // 戦闘終了の判定用変数
 
-        int heroHealth = Character.getHeroHealth();
+        int heroHealth = Character.getHeroHealth() * 2;
         int heroAttack = Character.getHeroAttack();
 
-        int bossHealth = 7000;
-        int bossAttack = 300;
+        int bossHealth = 20000;
+        int bossAttack = 500;
 
-        Scanner input = new Scanner(System.in);  // 新しく Scanner を宣言
+        Scanner input = new Scanner(System.in,Charset.forName("Shift-JIS"));  // 新しく Scanner を宣言
 
         while (judgement == 1) {
             if (reviveCount == 1) {
@@ -230,10 +246,10 @@ public class Adventure {
                 Method.talk("「なんだ！？」\n勇者が奇跡的に再び立ち上がり、新たな力が湧き上がる。\n");
                 Method.talk("もう一度だけ勇者は魔王に挑戦した！\n");
                 heroHealth += reviveCount * 10000;
-                heroAttack += reviveCount * 5000;
+                heroAttack += reviveCount * 1000;
                 bossAttack += reviveCount * 1000;
                 Method.talk("勇者のHPは" + heroHealth + "\n");
-                Method.talk("勇者の攻撃力は" + heroHealth + "だ\n");
+                Method.talk("勇者の攻撃力は" + heroAttack + "だ\n");
                 Method.nextround();
                 reviveCount++;
             }
@@ -287,15 +303,17 @@ public class Adventure {
 
                 System.out.println("復活の呪文を使用しますか\nYES   >> 1\nNO    >> 9");
                 int restart = input.nextInt();
+                input.nextLine();
 
                 if (restart == 1) {
                     Method.talk("復活の呪文を唱えてください。\n >> ");
-                    String jumon = input.next();
+                    String jumon = input.nextLine();
+                    String realize = "＊＊＊＊＊　＊＊＊＊＊＊＊　＊＊＊＊＊　＊＊＊";
 
-                    if ("＊＊＊＊＊ ＊＊＊＊＊＊＊ ＊＊＊＊＊　＊＊＊".equals(jumon)) {
-                        finalBattle();
+                    if (jumon.equals(realize)) {
+                        reviveCount=1;
                     } else {
-                        Method.talk("勇者の復活に失敗した...");
+                        Method.talk("勇者の復活に失敗した...\n");
                         Method.talk("世界は闇に包まれた。\n         E       \n         N        \n         D        ");
                         break;
                     }
